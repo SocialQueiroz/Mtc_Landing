@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTC | Automação Inteligente</title>
+    <meta name="description" content="Transformamos operações manuais em sistemas previsíveis e escaláveis com IA.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/MTC.ico">
+    
+    <!-- Supabase SDK (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">MTC</div>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div id="scales-container"></div>
+    <div id="data-map-bg"></div>
+
+    <!-- Header -->
+    <header class="premium-header">
+        <!-- Barra de Progresso de Scroll -->
+        <div id="scroll-progress-bar"></div>
+        
+        <div class="container header-inner">
+            <a href="index.html" class="logo">MTC.</a>
+            <a href="#contact" class="btn-glow">Diagnóstico Gratuito</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-premium">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="hero-tag">Automação & Inteligência</span>
+                    <h1 class="hero-title">Operações sem <br><span class="text-gradient">retrabalho.</span></h1>
+                    <p class="hero-desc">
+                        A MTC transforma processos manuais em fluxos automáticos, previsíveis e escaláveis — com IA aplicada e desenvolvimento sob medida.
+                    </p>
+                    <div class="cta-wrapper">
+                        <a href="#contact" class="btn-glow">Agendar Diagnóstico →</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal">
+                    <div class="hero-image-container">
+                        <img src="assets/images/team.png" alt="Equipe MTC" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Journey Section -->
+        <section id="client-journey" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">O Processo</span>
+                    <h2>Como ser cliente MTC</h2>
+                    <p class="section-subtitle">Do diagnóstico à evolução contínua.</p>
+                </div>
+                
+                <div class="journey-grid">
+                    <div class="journey-card reveal">
+                        <div class="card-visual" style="background-image: url('assets/images/step1.png');">
+                            <div class="visual-overlay"></div>
+                            <span class="step-number">01</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Entre em contato</h3>
+                            <p>Abrimos a conversa entendendo sua realidade atual, seu processo e o contexto do seu negócio. Nada de pitch pronto — começamos ouvindo.</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-card reveal">
+                        <div class="card-visual" style="background-image: url('assets/images/step2.png');">
+                            <div class="visual-overlay"></div>
+                            <span class="step-number">02</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Entendemos seu problema</h3>
+                            <p>Fazemos um diagnóstico preciso, baseado em dados, observando gargalos, retrabalho, perdas invisíveis e oportunidades claras de automação. Aqui nasce a estratégia.</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-card reveal">
+                        <div class="card-visual" style="background-image: url('assets/images/step3.png');">
+                            <div class="visual-overlay"></div>
+                            <span class="step-number">03</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Resolvemos o seu problema</h3>
+                            <p>Desenvolvemos a solução sob medida: automação, IA aplicada, validação de dados e fluxos inteligentes. O sistema passa a trabalhar onde antes você perdia tempo.</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-card reveal">
+                        <div class="card-visual" style="background-image: url('assets/images/step4.png');">
+                            <div class="visual-overlay"></div>
+                            <span class="step-number">04</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Evoluímos com você</h3>
+                            <p>Após entrega, acompanhamos a operação, realizamos manutenções contínuas e adicionamos melhorias conforme sua empresa cresce. A MTC não entrega e desaparece — construímos juntos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section (7 Commandments Style) -->
+        <section id="values" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">Nossos Princípios</span>
+                    <h2>Os 7 Valores da MTC</h2>
+                    <p class="section-subtitle">Os pilares que guiam cada projeto, cada linha de código, cada decisão.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card reveal">
+                        <div class="value-number">01</div>
+                        <h3>Eficiência como princípio</h3>
+                        <p>Todo projeto nasce para eliminar desperdício, reduzir retrabalho e aumentar produtividade real. Nada é feito por estética — tudo precisa funcionar melhor.</p>
+                    </div>
+
+                    <div class="value-card reveal">
+                        <div class="value-number">02</div>
+                        <h3>Tecnologia orientada por dados</h3>
+                        <p>Decisões não são baseadas em achismo. A MTC opera a partir de números, métricas, padrões e análise profunda da operação do cliente.</p>
+                    </div>
+
+                    <div class="value-card reveal">
+                        <div class="value-number">03</div>
+                        <h3>Simplicidade na superfície, sofisticação por trás</h3>
+                        <p>O cliente vê facilidade. Por trás, existe engenharia, automação e lógica de alto nível. A tecnologia não complica — ela liberta.</p>
+                    </div>
+
+                    <div class="value-card reveal">
+                        <div class="value-number">04</div>
+                        <h3>Parceria contínua</h3>
+                        <p>A MTC não entrega e desaparece. Mantemos evolução constante, ajustes, melhorias e acompanhamento. O cliente nunca fica sozinho.</p>
+                    </div>
+
+                    <div class="value-card reveal">
+                        <div class="value-number">05</div>
+                        <h3>Transparência e responsabilidade técnica</h3>
+                        <p>Cada entrega é clara, documentada, explicada e mensurada. Sem promessa vazia. Sem exagero. Sem mágica. Só tecnologia que resolve.</p>
+                    </div>
+
+                    <div class="value-card reveal">
+                        <div class="value-number">06</div>
+                        <h3>Automação humana</h3>
+                        <p>Acreditamos que a tecnologia só faz sentido quando facilita a vida das pessoas. Automatizar não é substituir — é liberar potencial.</p>
+                    </div>
+
+                    <div class="value-card reveal">
+                        <div class="value-number">07</div>
+                        <h3>Crescimento sustentável do cliente</h3>
+                        <p>Nosso foco é longo prazo. A MTC existe para tornar a empresa do cliente mais ágil, previsível e lucrativa — hoje e daqui dois anos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose MTC Section -->
+        <section id="why-mtc" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">Diferenciais</span>
+                    <h2>Por que escolher a <span class="text-gradient">MTC</span>?</h2>
+                    <p class="section-subtitle">Não somos apenas mais uma empresa de tecnologia.</p>
+                </div>
+
+                <div class="why-grid">
+                    <div class="why-card reveal">
+                        <div class="why-icon">🎯</div>
+                        <h3>Alinhamento absoluto com objetivos de negócio</h3>
+                        <p>A MTC não atua como fornecedora de software, mas como <strong>parceira estratégica</strong>.</p>
+                        <ul class="why-list">
+                            <li>Diagnóstico operacional antes de qualquer desenvolvimento</li>
+                            <li>Análise de impacto financeiro e custo do retrabalho</li>
+                            <li>Tecnologia orientada diretamente a KPIs</li>
+                            <li>Cada entrega é mensurável e alinhada ao resultado final</li>
+                        </ul>
+                    </div>
+
+                    <div class="why-card reveal">
+                        <div class="why-icon">⚙️</div>
+                        <h3>Soluções customizadas, integradas e escaláveis</h3>
+                        <p>Ao contrário de plataformas padronizadas, a MTC projeta sistemas que acompanham a <strong>estrutura real da empresa</strong>.</p>
+                        <ul class="why-list">
+                            <li><strong>Customizadas:</strong> aderência total ao fluxo operacional</li>
+                            <li><strong>Integradas:</strong> sistemas conversam entre si</li>
+                            <li><strong>Escaláveis:</strong> crescem junto com o negócio</li>
+                        </ul>
+                        <p style="margin-top: 16px;">Isso elimina adaptações forçadas, ruído interno e dependência de múltiplas ferramentas desconexas.</p>
+                    </div>
+
+                    <div class="why-card reveal">
+                        <div class="why-icon">🤝</div>
+                        <h3>Parceria de longo prazo com evolução contínua</h3>
+                        <p>A MTC opera em modelo de <strong>acompanhamento permanente</strong>, garantindo manutenção evolutiva e melhorias contínuas.</p>
+                        <ul class="why-list">
+                            <li>O cliente não recebe um sistema estático</li>
+                            <li>Ampliamos automações a cada etapa</li>
+                            <li>Ajustamos fluxos e aprimoramos integrações</li>
+                            <li>Fortalecemos indicadores continuamente</li>
+                        </ul>
+                        <p style="margin-top: 16px;">A MTC permanece presente para garantir <strong>eficiência sustentável</strong>, não apenas implantação inicial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Efficiency Card -->
+        <section class="efficiency-card-section">
+            <div class="container">
+                <div class="efficiency-card glass-panel reveal">
+                    <div class="efficiency-image">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Equipe eficiente" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                    </div>
+                    <div class="efficiency-content">
+                        <h3>Seu time é mais eficiente com a MTC</h3>
+                        <p>Transformamos processos manuais em automação inteligente, liberando sua equipe para focar no que realmente importa: crescimento e inovação.</p>
+                        <button class="btn-glow" onclick="document.querySelector('.cta-button').click()">Comece Agora →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">O que fazemos</span>
+                    <h2>Soluções de Ponta a Ponta</h2>
+                    <p class="section-subtitle">Tecnologia invisível que gera resultados visíveis.</p>
+                </div>
+
+                <div class="services-grid-premium">
+                    <div class="glass-panel reveal">
+                        <div class="service-icon">⚡</div>
+                        <h3 class="service-title">Automação de Processos</h3>
+                        <p class="service-desc">Robôs que executam tarefas repetitivas 24/7 com zero erro. De emissão de notas a conciliação bancária.</p>
+                    </div>
+                    <div class="glass-panel reveal">
+                        <div class="service-icon">🧠</div>
+                        <h3 class="service-title">Inteligência Artificial</h3>
+                        <p class="service-desc">Algoritmos que analisam seus dados, preveem demandas e tomam decisões baseadas em padrões reais.</p>
+                    </div>
+                    <div class="glass-panel reveal">
+                        <div class="service-icon">🛠️</div>
+                        <h3 class="service-title">Sistemas Sob Medida</h3>
+                        <p class="service-desc">Desenvolvimento de plataformas exclusivas para resolver dores específicas da sua operação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations Carousel -->
+        <section id="integrations" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">Ecossistema</span>
+                    <h2>Conectamos com tudo</h2>
+                    <p class="section-subtitle">Integração nativa com as principais plataformas do mercado.</p>
+                </div>
+                <div class="marquee-wrapper reveal">
+                    <div class="marquee-track">
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/google" alt="Google"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/googlesheets/34A853" alt="Google Sheets"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/googledrive/4285F4" alt="Google Drive"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/meta/0081FB" alt="Facebook"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Salesforce"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/sap/0FAAFF" alt="SAP"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/slack/4A154B" alt="Slack"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/trello/0052CC" alt="Trello"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/asana/F06A6A" alt="Asana"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/mailchimp/FFE01B" alt="Mailchimp"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/zapier/FF4A00" alt="Zapier"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/notion" alt="Notion"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/dropbox/0061FF" alt="Dropbox"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/stripe/008CDD" alt="Stripe"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/zoom/2D8CFF" alt="Zoom"></div>
+                        
+                        <!-- Duplicate for seamless loop -->
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/google" alt="Google"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/googlesheets/34A853" alt="Google Sheets"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/googledrive/4285F4" alt="Google Drive"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/meta/0081FB" alt="Facebook"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/salesforce/00A1E0" alt="Salesforce"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/sap/0FAAFF" alt="SAP"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/slack/4A154B" alt="Slack"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/trello/0052CC" alt="Trello"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/asana/F06A6A" alt="Asana"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/mailchimp/FFE01B" alt="Mailchimp"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/zapier/FF4A00" alt="Zapier"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/notion" alt="Notion"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/airtable/18BFFF" alt="Airtable"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/dropbox/0061FF" alt="Dropbox"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/stripe/008CDD" alt="Stripe"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/zoom/2D8CFF" alt="Zoom"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/zendesk/03363D" alt="Zendesk"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/intercom/1F8DED" alt="Intercom"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/typeform/262627" alt="Typeform"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/pipedrive/FF7A59" alt="Pipedrive"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/freshworks/00C9A7" alt="Freshworks"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/monday/FF3D57" alt="Monday.com"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/quickbooks/2CA01C" alt="QuickBooks"></div>
+                        <div class="tech-card-marquee"><img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira"></div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 0.95rem;">+750 integrações disponíveis</p>
+            </div>
+        </section>
+
+        <!-- Business Pain Points Section -->
+        <section id="pain-points" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">O Cenário Real</span>
+                    <h2>Por que sua operação trava?</h2>
+                    <p class="section-subtitle">O custo invisível da falta de automação.</p>
+                </div>
+
+                <div class="chart-container reveal">
+                    <div class="chart-visual">
+                        <!-- CSS Conic Gradient handles the chart -->
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: var(--accent-primary);"></div>
+                            <div class="legend-text">
+                                <h4><span>35%</span>Retrabalho Manual</h4>
+                                <p>Horas perdidas corrigindo erros de digitação e conferindo planilhas.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: rgba(196, 167, 231, 0.6);"></div>
+                            <div class="legend-text">
+                                <h4><span>22%</span>Perda de Dados</h4>
+                                <p>Informações que se perdem entre e-mails, WhatsApp e papéis.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: rgba(196, 167, 231, 0.4);"></div>
+                            <div class="legend-text">
+                                <h4><span>18%</span>Atrasos na Entrega</h4>
+                                <p>Processos lentos que impactam diretamente a satisfação do cliente.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: rgba(196, 167, 231, 0.2);"></div>
+                            <div class="legend-text">
+                                <h4><span>12%</span>Custo Operacional</h4>
+                                <p>Equipe inchada realizando tarefas que poderiam ser automáticas.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: rgba(255, 255, 255, 0.1);"></div>
+                            <div class="legend-text">
+                                <h4><span>8%</span>Falta de Padrão</h4>
+                                <p>Cada funcionário executa a tarefa de um jeito diferente.</p>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: rgba(255, 255, 255, 0.05);"></div>
+                            <div class="legend-text">
+                                <h4><span>5%</span>Ferramentas desconectadas</h4>
+                                <p>Sistemas isolados, plataformas que não conversam e operações que travam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="section-padding">
+            <div class="container">
+                <div class="results-premium reveal">
+                    <div class="results-header">
+                        <h2>A MTC ajuda a <span id="rotating-word" class="text-gradient">organizar</span> sua empresa</h2>
+                        <p class="results-subtitle">Resultados reais de quem automatizou com a gente</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card reveal">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-number" data-target="89" data-suffix="%">0%</div>
+                            <div class="stat-label">Otimização de Tarefas</div>
+                            <p class="stat-desc">Processos que antes levavam horas agora rodam sozinhos</p>
+                        </div>
+                        <div class="stat-card reveal">
+                            <div class="stat-icon">✓</div>
+                            <div class="stat-number" data-target="78" data-suffix="%" data-prefix="-">0%</div>
+                            <div class="stat-label">Erros Humanos</div>
+                            <p class="stat-desc">Validação automática elimina retrabalho e inconsistências</p>
+                        </div>
+                        <div class="stat-card reveal">
+                            <div class="stat-icon">⚡</div>
+                            <div class="stat-number" data-target="67" data-suffix="%" data-prefix="+">0%</div>
+                            <div class="stat-label">Produtividade</div>
+                            <p class="stat-desc">Sua equipe focada no que realmente importa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="hero-tag">Dúvidas</span>
+                    <h2>Perguntas Frequentes</h2>
+                </div>
+                <div class="faq-grid reveal">
+                    <div class="faq-item">
+                        <details>
+                            <summary>Preciso saber programar para usar?</summary>
+                            <p>Não. A MTC é construída para o usuário comum. Todo o trabalho técnico — automação, integrações e lógica do sistema — fica do nosso lado. Você e sua equipe só utilizam a interface, sem precisar saber programar nem entender tecnologia.</p>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Quanto tempo leva para implementar?</summary>
+                            <p>Realizamos o diagnóstico em 24h e entregamos os primeiros resultados operacionais em até 2 semanas.</p>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>É seguro para dados sensíveis?</summary>
+                            <p>Sim. Utilizamos criptografia de ponta a ponta e seguimos rigorosamente a LGPD. Seus dados nunca são expostos.</p>
+                        </details>
+                    </div>
+                    <div class="faq-item">
+                        <details>
+                            <summary>Funciona para minha empresa?</summary>
+                            <p>A MTC funciona para sua empresa porque adapta a tecnologia ao seu processo, não o contrário. Analisamos onde sua operação perde tempo, automatizamos o que gera retrabalho e entregamos um fluxo mais rápido, organizado e previsível. Se existe processo manual, existe espaço para a MTC gerar resultado.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CTA Section -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="glass-panel reveal" style="text-align: center; background: linear-gradient(135deg, rgba(179, 136, 235, 0.1), transparent);">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; line-height: 1.3;">
+                        <strong style="color: var(--accent-primary);">M</strong>ultiplique. 
+                        <strong style="color: var(--accent-primary);">T</strong>ransforme. 
+                        <strong style="color: var(--accent-primary);">C</strong>resça.
+                    </h2>
+                    <p style="max-width: 600px; margin: 0 auto 40px; color: var(--text-muted);">
+                        Agende um diagnóstico completo e descubra quanto tempo e dinheiro sua empresa pode economizar.
+                    </p>
+                    <a href="#contact" class="btn-glow" style="font-size: 1.1rem; padding: 16px 40px;">Agendar Conversa →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 class="logo">MTC.</h3>
+                    <p>Transformamos operações manuais em sistemas previsíveis e escaláveis com IA aplicada e desenvolvimento sob medida.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#client-journey">Como Funciona</a></li>
+                        <li><a href="#values">Nossos Valores</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="termos.html">Termos Legais</a></li>
+                        <li><a href="Calculadora/index.html" style="opacity: 0.5; font-size: 0.85rem;">Recursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Receba insights de automação.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail" class="input-glass">
+                        <button type="button" class="btn-glow" style="padding: 10px;">→</button>
+                    </form>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 40px; border-top: 1px solid var(--glass-border); margin-top: 40px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem;">© 2024 MTC - Master Technologies. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h3>Agendar Diagnóstico</h3>
+                <p>Preencha os dados abaixo para que nossos especialistas preparem um estudo personalizado para sua empresa.</p>
+            </div>
+            <form class="modal-form" id="lead-form">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" class="input-glass" placeholder="Seu nome" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label>Nome da Empresa</label>
+                    <input type="text" class="input-glass" placeholder="Sua empresa" id="empresa" name="empresa" required>
+                </div>
+                <div class="form-group">
+                    <label>Porte da Empresa</label>
+                    <select class="input-glass" id="porte" name="porte" required>
+                        <option value="" disabled selected>Selecione o porte</option>
+                        <option value="pequena">Pequena (até 50 func.)</option>
+                        <option value="media">Média (51-200 func.)</option>
+                        <option value="grande">Grande (+200 func.)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Telefone / WhatsApp</label>
+                    <input type="tel" class="input-glass" placeholder="(00) 00000-0000" id="telefone" name="telefone" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail Corporativo</label>
+                    <input type="email" class="input-glass" placeholder="seu@email.com" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn-glow" id="submit-btn" style="width: 100%; margin-top: 20px;">Solicitar Agendamento</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

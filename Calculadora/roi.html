@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de ROI | MTC</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/MTC.ico">
+    <link rel="stylesheet" href="calc-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Voltar</a>
+        
+        <div class="calc-header">
+            <span class="calc-icon">📊</span>
+            <h1>Calculadora de ROI</h1>
+            <p>Retorno sobre Investimento em Automação com IA</p>
+        </div>
+
+        <div class="calc-grid">
+            <!-- Cenário Atual -->
+            <div class="calc-section">
+                <h2>📉 Cenário Atual (Sem Automação)</h2>
+                
+                <div class="form-group">
+                    <label>Vendas/Conversões por Mês</label>
+                    <input type="number" id="vendas-atual" min="0" value="150" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Valor Médio por Venda (R$)</label>
+                    <input type="number" id="ticket-medio" min="0" step="0.01" value="800" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Taxa de Conversão Atual (%)</label>
+                    <input type="number" id="taxa-conversao-atual" min="0" max="100" step="0.1" value="2.5" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Horas Gastas em Tarefas Manuais/Mês</label>
+                    <input type="number" id="horas-manuais" min="0" value="180" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Custo Hora/Trabalho (R$)</label>
+                    <input type="number" id="custo-hora" min="0" step="0.01" value="55" class="input-glass">
+                </div>
+
+                <!-- Métricas Atuais -->
+                <div class="metrics-grid" style="margin-top: 30px;">
+                    <div class="metric-card">
+                        <div class="metric-label">Faturamento/Mês</div>
+                        <div class="metric-value" id="fat-atual-card">R$ 0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Custo Operacional/Mês</div>
+                        <div class="metric-value" id="custo-op-card">R$ 0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cenário com IA -->
+            <div class="calc-section">
+                <h2>🚀 Cenário com Automação + IA</h2>
+                
+                <div class="form-group">
+                    <label>Aumento na Taxa de Conversão (%)</label>
+                    <input type="number" id="aumento-conversao" min="0" max="500" step="0.1" value="40" class="input-glass">
+                    <small style="color: var(--text-muted); font-size: 0.85rem;">Ex: 40% = de 2.5% para 3.5%</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Redução de Horas Manuais (%)</label>
+                    <input type="number" id="reducao-horas" min="0" max="100" step="1" value="75" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Investimento Inicial em Automação (R$)</label>
+                    <input type="number" id="investimento-ia" min="0" step="0.01" value="25000" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Custo Mensal de Manutenção (R$)</label>
+                    <input type="number" id="manutencao-ia" min="0" step="0.01" value="2500" class="input-glass">
+                </div>
+
+                <!-- Métricas com IA -->
+                <div class="metrics-grid" style="margin-top: 30px;">
+                    <div class="metric-card highlight">
+                        <div class="metric-label">Novo Faturamento/Mês</div>
+                        <div class="metric-value" id="novo-fat-card">R$ 0</div>
+                    </div>
+                    <div class="metric-card success">
+                        <div class="metric-label">Ganho/Mês</div>
+                        <div class="metric-value" id="ganho-card">R$ 0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados Principais -->
+        <div class="calc-section" style="margin-top: 40px;">
+            <h2>💰 Resultados e Métricas</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Nova Taxa de Conversão</div>
+                    <div class="metric-value" id="nova-taxa">0%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Novas Vendas/Mês</div>
+                    <div class="metric-value" id="novas-vendas">0</div>
+                </div>
+                <div class="metric-card success">
+                    <div class="metric-label">Ganho Mensal</div>
+                    <div class="metric-value" id="ganho-mensal">R$ 0</div>
+                </div>
+                <div class="metric-card success">
+                    <div class="metric-label">Ganho Anual</div>
+                    <div class="metric-value" id="ganho-anual">R$ 0</div>
+                </div>
+                <div class="metric-card warning">
+                    <div class="metric-label">Horas Economizadas/Mês</div>
+                    <div class="metric-value" id="horas-econ">0h</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Economia Operacional/Mês</div>
+                    <div class="metric-value" id="econ-op">R$ 0</div>
+                </div>
+                <div class="metric-card payback">
+                    <div class="metric-label">Payback</div>
+                    <div class="metric-value" id="payback-roi">0 meses</div>
+                </div>
+                <div class="metric-card roi">
+                    <div class="metric-label">ROI em 12 meses</div>
+                    <div class="metric-value" id="roi-12">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="calc-section" style="margin-top: 40px;">
+            <h2>📈 Análise Visual</h2>
+            
+            <div class="charts-row">
+                <!-- Gráfico de Barras: Faturamento -->
+                <div class="chart-box">
+                    <h3>💰 Comparativo de Faturamento Anual</h3>
+                    <canvas id="barChartFat"></canvas>
+                </div>
+
+                <!-- Gráfico de Pizza: Distribuição de Ganhos -->
+                <div class="chart-box">
+                    <h3>📊 Composição do Ganho Anual</h3>
+                    <canvas id="pieChartGanhos"></canvas>
+                </div>
+            </div>
+
+            <!-- Gráfico de Linhas: Projeção -->
+            <div class="chart-box" style="margin-top: 30px;">
+                <h3>📈 Projeção de Retorno Acumulado (24 meses)</h3>
+                <canvas id="lineChartProjecao"></canvas>
+            </div>
+        </div>
+
+        <!-- Métricas Adicionais -->
+        <div class="calc-section" style="margin-top: 40px;">
+            <h2>🎯 Análise de Longo Prazo</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Retorno em 3 anos</div>
+                    <div class="metric-value" id="retorno-3anos">R$ 0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Retorno em 5 anos</div>
+                    <div class="metric-value" id="retorno-5anos">R$ 0</div>
+                </div>
+                <div class="metric-card success">
+                    <div class="metric-label">ROI em 3 anos</div>
+                    <div class="metric-value" id="roi-3anos">0%</div>
+                </div>
+                <div class="metric-card success">
+                    <div class="metric-label">ROI em 5 anos</div>
+                    <div class="metric-value" id="roi-5anos">0%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="roi.js"></script>
+</body>
+</html>

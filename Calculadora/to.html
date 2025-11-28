@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de TO | MTC</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/MTC.ico">
+    <link rel="stylesheet" href="calc-style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Voltar</a>
+        
+        <div class="calc-header">
+            <span class="calc-icon">⏱️</span>
+            <h1>Calculadora de TO</h1>
+            <p>Tempo Ocioso: Descubra quanto tempo e dinheiro você perde</p>
+        </div>
+
+        <div class="calc-grid">
+            <!-- Cenário Manual -->
+            <div class="calc-section">
+                <h2>👨‍💼 Processo Manual</h2>
+                
+                <div class="form-group">
+                    <label>Nome da Tarefa</label>
+                    <input type="text" id="nome-tarefa" value="Processamento de dados" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Tempo por Execução (minutos)</label>
+                    <input type="number" id="tempo-execucao" min="0" step="0.1" value="30" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Execuções por Dia</label>
+                    <input type="number" id="execucoes-dia" min="0" value="10" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Dias Úteis por Mês</label>
+                    <input type="number" id="dias-uteis" min="0" value="22" class="input-glass">
+                </div>
+
+                <div class="form-group">
+                    <label>Custo Hora/Trabalho (R$)</label>
+                    <input type="number" id="custo-hora-to" min="0" step="0.01" value="50" class="input-glass">
+                </div>
+
+                <div class="results-box">
+                    <h3>📊 Tempo Gasto (Manual)</h3>
+                    <div class="result-item">
+                        <span>Tempo por Dia</span>
+                        <span id="tempo-dia">0h 0min</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Tempo por Semana</span>
+                        <span id="tempo-semana">0h 0min</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Tempo por Mês</span>
+                        <span id="tempo-mes">0h 0min</span>
+                    </div>
+                    <div class="result-item total">
+                        <span><strong>Tempo por Ano</strong></span>
+                        <span id="tempo-ano"><strong>0h 0min</strong></span>
+                    </div>
+                    <div class="result-item">
+                        <span>Custo Mensal</span>
+                        <span id="custo-mensal-to">R$ 0,00</span>
+                    </div>
+                    <div class="result-item total-highlight">
+                        <span><strong>Custo Anual</strong></span>
+                        <span id="custo-anual-to"><strong>R$ 0,00</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cenário Automatizado -->
+            <div class="calc-section">
+                <h2>🤖 Processo Automatizado</h2>
+                
+                <div class="form-group">
+                    <label>Tempo por Execução com IA (minutos)</label>
+                    <input type="number" id="tempo-ia" min="0" step="0.1" value="2" class="input-glass">
+                    <small style="color: var(--text-muted); font-size: 0.85rem;">Tempo que a IA leva para executar</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Redução de Intervenção Humana (%)</label>
+                    <input type="number" id="reducao-intervencao" min="0" max="100" step="1" value="90" class="input-glass">
+                    <small style="color: var(--text-muted); font-size: 0.85rem;">% de tarefas que não precisam de supervisão</small>
+                </div>
+
+                <div class="results-box">
+                    <h3>⚡ Tempo Economizado</h3>
+                    <div class="result-item savings">
+                        <span><strong>Economia por Dia</strong></span>
+                        <span id="economia-dia"><strong>0h 0min</strong></span>
+                    </div>
+                    <div class="result-item savings">
+                        <span><strong>Economia por Semana</strong></span>
+                        <span id="economia-semana"><strong>0h 0min</strong></span>
+                    </div>
+                    <div class="result-item savings">
+                        <span><strong>Economia por Mês</strong></span>
+                        <span id="economia-mes"><strong>0h 0min</strong></span>
+                    </div>
+                    <div class="result-item savings">
+                        <span><strong>Economia por Ano</strong></span>
+                        <span id="economia-ano"><strong>0h 0min</strong></span>
+                    </div>
+                    <div class="result-item">
+                        <span>Equivalente a (dias úteis/ano)</span>
+                        <span id="dias-economizados">0 dias</span>
+                    </div>
+                    <div class="result-item total-highlight">
+                        <span><strong>Economia Financeira Mensal</strong></span>
+                        <span id="economia-financeira-mensal"><strong>R$ 0,00</strong></span>
+                    </div>
+                    <div class="result-item total-highlight">
+                        <span><strong>Economia Financeira Anual</strong></span>
+                        <span id="economia-financeira-anual"><strong>R$ 0,00</strong></span>
+                    </div>
+                    <div class="result-item roi">
+                        <span><strong>Produtividade Aumentada</strong></span>
+                        <span id="produtividade"><strong>0%</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráfico Comparativo -->
+        <div class="calc-section" style="margin-top: 40px;">
+            <h2>📈 Comparativo de Tempo</h2>
+            <div class="comparison-chart">
+                <div class="chart-bars">
+                    <div class="chart-bar">
+                        <div class="bar-label">Tempo Manual (horas/mês)</div>
+                        <div class="bar-container">
+                            <div class="bar bar-mo" id="bar-tempo-manual" style="width: 100%"></div>
+                        </div>
+                        <div class="bar-value" id="bar-tempo-manual-value">0h</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar-label">Tempo com IA (horas/mês)</div>
+                        <div class="bar-container">
+                            <div class="bar bar-auto" id="bar-tempo-ia" style="width: 10%"></div>
+                        </div>
+                        <div class="bar-value" id="bar-tempo-ia-value">0h</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="to.js"></script>
+</body>
+</html>
